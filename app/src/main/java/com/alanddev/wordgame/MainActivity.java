@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button drag ;
     Button dragtwo ;
+    Button dropthree;
+    Button dropfour;
+    Button dropfive;
     LinearLayout drop;
     TextView text;
     TextView sucess;
@@ -44,63 +47,48 @@ public class MainActivity extends AppCompatActivity {
 
         drag = (Button)findViewById(R.id.one);
         dragtwo = (Button)findViewById(R.id.two);
+        dropthree = (Button)findViewById(R.id.three);
+        dropfour = (Button)findViewById(R.id.four);
+        dropfive = (Button)findViewById(R.id.five);
+        dropthree.setTag(new String("A"));
+        dropfour.setTag(new String("B"));
+        dropfive.setTag(new String("C"));
         drop = (LinearLayout)findViewById(R.id.bottomlinear2);
-        text = (TextView)findViewById(R.id.Total);
-        sucess = (TextView)findViewById(R.id.Sucess);
 
-        drop.setOnDragListener(new View.OnDragListener() {
 
+        dropthree.setOnDragListener(new View.OnDragListener() {
             @Override
             public boolean onDrag(View v, DragEvent event) {
                 // TODO Auto-generated method stub
-                final int action = event.getAction();
-                switch (action) {
-
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        break;
-
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        break;
-
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        break;
-                    // ClipData only get in ACTION_DROP
-                    case DragEvent.ACTION_DROP: {
-                        failure = failure + 1;
-                        ClipData dataClip = event.getClipData();
-                        String data = "";
-                        if (dataClip !=null) {
-                            data = dataClip.getItemAt(0).getText().toString();
-                        }
-                        sucess.setText("Drops :" + data);
-                        text.setText("Khong hieu");
-                        return (true);
-                    }
-
-                    case DragEvent.ACTION_DRAG_ENDED: {
-//                        total = total + 1;
-//                        int suc = total - failure;
-//                        sucess.setText("Sucessful Drops :" + suc);
-//                        text.setText("Total Drops: " + total);
-                        return (true);
-
-                    }
-
-                    default:
-                        break;
-                }
-                return true;
+                return dropEvent(event,dropthree);
             }
         });
-        drag.setOnTouchListener(new View.OnTouchListener() {
 
+        dropfour.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                // TODO Auto-generated method stub
+                return dropEvent(event,dropfour);
+            }
+        });
+
+
+        dropfive.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                // TODO Auto-generated method stub
+                return dropEvent(event,dropfive);
+            }
+        });
+
+
+
+        drag.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent arg1) {
                 // TODO Auto-generated method stub
-                ClipData data = ClipData.newPlainText("name", "A");
-                View.DragShadowBuilder shadow = new View.DragShadowBuilder(drag);
-                v.startDrag(data, shadow, null, 0);
-                return false;
+                return dragEvent(v,"A",drag);
+
             }
         });
 
@@ -109,14 +97,58 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent arg1) {
                 // TODO Auto-generated method stub
-                ClipData data = ClipData.newPlainText("name", "B");
-                View.DragShadowBuilder shadow = new View.DragShadowBuilder(drag);
-                v.startDrag(data, shadow, null, 0);
-                return false;
+                return dragEvent(v,"B",dragtwo);
+
             }
         });
 
 
+    }
+
+
+    private boolean dropEvent(DragEvent event, Button button){
+        final int action = event.getAction();
+        switch (action) {
+            case DragEvent.ACTION_DRAG_STARTED:
+                break;
+
+            case DragEvent.ACTION_DRAG_EXITED:
+                break;
+
+            case DragEvent.ACTION_DRAG_ENTERED:
+                break;
+            // ClipData only get in ACTION_DROP
+            case DragEvent.ACTION_DROP: {
+                ClipData dataClip = event.getClipData();
+                String data = "";
+                if (dataClip !=null) {
+                    data = dataClip.getItemAt(0).getText().toString();
+                }
+                String tag = button.getTag().toString();
+                if (!tag.equals(data)) {
+                    button.setText("W");
+                }else{
+                    button.setText(data);
+                }
+                return (true);
+            }
+
+            case DragEvent.ACTION_DRAG_ENDED: {
+                return (true);
+            }
+            default:
+                break;
+        }
+        return true;
+
+
+    }
+
+    private boolean dragEvent(View v, String value,Button button){
+        ClipData data = ClipData.newPlainText("name", value);
+        View.DragShadowBuilder shadow = new View.DragShadowBuilder(button);
+        v.startDrag(data, shadow, null, 0);
+        return false;
     }
 
     @Override

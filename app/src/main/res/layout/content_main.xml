@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:orientation="vertical"
+    android:layout_height="match_parent" android:background="@android:color/black"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -10,19 +11,118 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity" tools:showIn="@layout/activity_main">
 
+
+    <LinearLayout
+        android:id="@+id/bottomlinear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+        <Button
+            android:id="@+id/five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottomlinear3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/line2one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/line2two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+        <Button
+            android:id="@+id/line2three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottomlinear4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/line3one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/line3two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+        <Button
+            android:id="@+id/line3three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/button"
+            android:text=""
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/margin"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/bottomlinear"
         android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:background="#00ff00"
-        android:gravity="center"
-        android:orientation="vertical" >
-        <Button
-        android:id="@+id/one"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A"
-        android:textSize="30sp" />
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textSize="30sp" />
         <Button
             android:id="@+id/two"
             android:layout_width="wrap_content"
@@ -31,29 +131,6 @@
             android:textSize="30sp" />
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/bottomlinear2"
-        android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:background="#00ffff"
-        android:gravity="center"
-        android:orientation="vertical" >
-        <TextView
-            android:id="@+id/drop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Drop Here"
-            android:textSize="30sp" />
-        <TextView
-            android:id="@+id/Total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/Sucess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp" />
 
-    </LinearLayout>
+
 </LinearLayout>

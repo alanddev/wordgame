@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView sucess;
     int failure;
     int total;
+    int currentCol;
+
+    String []words = new String []{"A","","C","T","I","V","I","T","Y"};
+    int row = 3;
 
 
     @Override
@@ -47,47 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
         drag = (Button)findViewById(R.id.one);
         dragtwo = (Button)findViewById(R.id.two);
-        dropthree = (Button)findViewById(R.id.three);
-        dropfour = (Button)findViewById(R.id.four);
-        dropfive = (Button)findViewById(R.id.five);
-        dropthree.setTag(new String("A"));
-        dropfour.setTag(new String("B"));
-        dropfive.setTag(new String("C"));
-        drop = (LinearLayout)findViewById(R.id.bottomlinear2);
-
-
-        dropthree.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                // TODO Auto-generated method stub
-                return dropEvent(event,dropthree);
-            }
-        });
-
-        dropfour.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                // TODO Auto-generated method stub
-                return dropEvent(event,dropfour);
-            }
-        });
-
-
-        dropfive.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                // TODO Auto-generated method stub
-                return dropEvent(event,dropfive);
-            }
-        });
-
 
 
         drag.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent arg1) {
                 // TODO Auto-generated method stub
-                return dragEvent(v,"A",drag);
+                return dragEvent(v, "A", drag);
 
             }
         });
@@ -102,6 +72,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        LinearLayout layoutBoard = (LinearLayout)findViewById(R.id.gridcell);
+
+        int nRows = words.length/row;
+
+        for (int i = 0 ; i < nRows ;i++){
+            LinearLayout layoutRow = new LinearLayout(this);
+            layoutRow.setOrientation(LinearLayout.HORIZONTAL);
+            for (int j = 0; j<row; j++) {
+                final Button button = new Button(this);
+                button.setBackgroundResource(R.mipmap.button);
+                button.setLayoutParams(new LinearLayout.LayoutParams(160, 140));
+                button.setTextSize(30);
+                currentCol = (i*nRows) + j;
+                button.setTag(words[currentCol]);
+
+                button.setOnDragListener(new View.OnDragListener() {
+                    @Override
+                    public boolean onDrag(View v, DragEvent event) {
+                        // TODO Auto-generated method stub
+                        return dropEvent(event, button);
+                    }
+                });
+                layoutRow.addView(button);
+            }
+            layoutBoard.addView(layoutRow);
+        }
 
     }
 

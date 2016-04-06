@@ -11,96 +11,14 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity" tools:showIn="@layout/activity_main">
 
-
     <LinearLayout
-        android:id="@+id/bottomlinear2"
+        android:id="@+id/gridcell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-        <Button
-            android:id="@+id/five"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/bottomlinear3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/line2one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/line2two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-        <Button
-            android:id="@+id/line2three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/bottomlinear4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/line3one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/line3two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
-        <Button
-            android:id="@+id/line3three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/button"
-            android:text=""
-            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
